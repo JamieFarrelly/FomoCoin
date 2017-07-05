@@ -35,18 +35,18 @@ contract ERC20Interface {
     event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 }
 
-contract FixedSupplyToken is ERC20Interface {
-    string public constant symbol = "TODO";
-    string public constant name = "TODO Token";
+contract FOMOCoin is ERC20Interface {
+    string public constant symbol = "FOMO";
+    string public constant name = "FOMO Coin";
     uint8 public constant decimals = 0;
-		uint256 public totalSupply = 10000000;
-		uint256 public remainingSupply = 10000000;
+		uint256 public totalSupply = 42000000;
+		uint256 public remainingSupply = 20000000;
 		uint256 tokenCost = 1000000000000000;
-		uint256 startBlock;
-		uint256 endBlock;
+		uint256 startBlock = 3973365;
+		uint256 public endBlock = 4300000;
 
     // Owner of this contract
-    address public owner;
+    address public owner = 0x314FA670Cd113e0c4168fe0D62355B314dEa4f06;
 
     // Balances for each account
     mapping(address => uint256) balances;
@@ -62,12 +62,9 @@ contract FixedSupplyToken is ERC20Interface {
         _;
     }
 
-		function FixedSupplyToken (uint256 _startBlock, uint256 _endBlock, address _owner, uint256 _ownerBalance) {
-			startBlock = _startBlock;
-			endBlock = _endBlock;
-			owner = _owner;
-			balances[owner] = _ownerBalance;
-		}
+    function FOMOCoin () {
+      balances[owner] = 22000000;
+    }
 
     function totalSupply() constant returns (uint256 _totalSupply) {
         return totalSupply;
